@@ -17,10 +17,7 @@ Disponível para download em: https://www.pgadmin.org/download/pgadmin-4-windows
 #### php 8.0.22-nts-Win32-vs1-x64
 Disponível para download em: https://laragon.org/download/
 
->Este é um *blockquote*. O sinal usado abre e fecha este código no HTML. 
->Para adicionar mais uma linha à citação, basta teclar Enter para um novo
->código sinal. Isso gerará um novo parágrafo dentro do *blockquote*.
->Códigos de **negrito**, _itálico_ e <https://links.com> funcionam aqui.
+>Favor, ao instalar o Laragon configurar a extensão do php conforme mostrado na imagem abaixo: **pdo_pgsql**
 
 ![image](https://github.com/ItaloRodrigo/sys_user/assets/28151367/b64ba41c-1c0e-4fa7-9850-ae3f6fb84b78)
 
