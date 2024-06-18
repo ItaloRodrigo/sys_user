@@ -11,9 +11,12 @@
 https://github.com/ItaloRodrigo/sys_user.git
 ~~~
 
-## Configuração do banco de dados (pgAdmin)
+## Configuração do banco de dados PostgreSQL
 
-#### pgAdmin 4 v8.8 (released June 6, 2024) 
+### instalação do SGBD versão 16.3 para Windows x86-64
+Disponivel em: https://www.postgresql.org/download/
+
+#### cliente pgAdmin 4 v8.8 (released June 6, 2024) 
 Disponível para download em: https://www.pgadmin.org/download/pgadmin-4-windows/
 
 ## Configuração do servidor Laragon
