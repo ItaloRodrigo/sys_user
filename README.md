@@ -11,15 +11,12 @@
 #### pgAdmin 4 v8.8 (released June 6, 2024) 
 Disponível para download em: https://www.pgadmin.org/download/pgadmin-4-windows/
 
-ˋˋˋ
+
+~~~php
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=dbsys_user
 DB_USERNAME=sys_user
 DB_PASSWORD=
- ˋˋˋ
-
- ~~~php
-Esta é uma linha de código em PHP.
 ~~~
