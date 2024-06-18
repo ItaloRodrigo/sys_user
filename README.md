@@ -14,8 +14,7 @@ https://github.com/ItaloRodrigo/sys_user.git
 ## Configuração do banco de dados PostgreSQL
 
 ### instalação do SGBD e seus componentes (versão 16.3 para Windows x86-64)
-Disponivel em: https://www.postgresql.org/download/
-Proceda com a instalação!
+Disponivel em: https://www.postgresql.org/download/. Proceda com a instalação!
 - superuser: postgres
 - password: 123
 
