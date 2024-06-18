@@ -19,3 +19,7 @@ DB_DATABASE=dbsys_user
 DB_USERNAME=sys_user
 DB_PASSWORD=
  ˋˋˋ
+
+ ~~~php
+Esta é uma linha de código em PHP.
+~~~
