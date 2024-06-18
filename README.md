@@ -1,9 +1,10 @@
 <h1>sys_user </h1>
 ### Sistema para controle de usuários
 
-### Candidato: Ítalo Rodrigo Soares Silva
-<p> Mestre em Engenharia com ênfase em Otimização de Processos Industriais</p>
-<p>Cientista da Computação</p>
+## Dados do candidato
+**Nome:** Ítalo Rodrigo Soares Silva
+- Mestre em Engenharia com ênfase em Otimização de Processos Industriais
+- Cientista da Computação
 
 ## About Laravel
 
