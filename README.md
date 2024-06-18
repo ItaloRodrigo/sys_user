@@ -15,9 +15,9 @@ https://github.com/ItaloRodrigo/sys_user.git
 
 ### instalação do SGBD e seus componentes (versão 16.3 para Windows x86-64)
 Disponivel em: https://www.postgresql.org/download/
-<p>Proceda com a instalação!</p>
+Proceda com a instalação!
 - superuser: postgres
-- password: postgres
+- password: 123
 
 
 
