@@ -22,6 +22,9 @@ Disponível para download em: https://laragon.org/download/
 >código sinal. Isso gerará um novo parágrafo dentro do *blockquote*.
 >Códigos de **negrito**, _itálico_ e <https://links.com> funcionam aqui.
 
+![image](https://github.com/ItaloRodrigo/sys_user/assets/28151367/b64ba41c-1c0e-4fa7-9850-ae3f6fb84b78)
+
+
 
 ## Backend (Laravel)
 #### configuração do .env 
