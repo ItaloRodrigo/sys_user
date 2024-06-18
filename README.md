@@ -13,8 +13,11 @@ https://github.com/ItaloRodrigo/sys_user.git
 
 ## Configuração do banco de dados PostgreSQL
 
-### instalação do SGBD versão 16.3 para Windows x86-64
+### instalação do SGBD e seus componentes (versão 16.3 para Windows x86-64)
 Disponivel em: https://www.postgresql.org/download/
+<p>Proceda com a instalação!</p>
+**Superuser: postgres**
+**Password: postgres**
 
 #### cliente pgAdmin 4 v8.8 (released June 6, 2024) 
 Disponível para download em: https://www.pgadmin.org/download/pgadmin-4-windows/
