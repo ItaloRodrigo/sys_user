@@ -2,8 +2,8 @@
 ### Sistema para controle de usuários
 
 ### Candidato: Ítalo Rodrigo Soares Silva
-Mestre em Engenharia com ênfase em Otimização de Processos Industriais
-Cientista da Computação
+<p> Mestre em Engenharia com ênfase em Otimização de Processos Industriais</p>
+<p>Cientista da Computação</p>
 
 
 ## Configuração do banco de dados (pgAdmin)
