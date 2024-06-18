@@ -17,10 +17,9 @@ https://github.com/ItaloRodrigo/sys_user.git
 Disponivel em: https://www.postgresql.org/download/. Proceda com a instalação!
 - superuser: postgres
 - password: 123
+- port: 5432
 
-
-
-## Configuração do servidor Laragon
+## Configuração do servidor **Laragon**
 
 #### laragon full 5.0.0 210523 
 #### php 8.0.22-nts-Win32-vs1-x64
