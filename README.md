@@ -6,6 +6,11 @@
 - Mestre em Engenharia com ênfase em Otimização de Processos Industriais
 - Cientista da Computação
 
+## Clone o repositório
+~~~git
+https://github.com/ItaloRodrigo/sys_user.git
+~~~
+
 ## Configuração do banco de dados (pgAdmin)
 
 #### pgAdmin 4 v8.8 (released June 6, 2024) 
