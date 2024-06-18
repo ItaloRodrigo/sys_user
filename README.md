@@ -11,7 +11,14 @@
 #### pgAdmin 4 v8.8 (released June 6, 2024) 
 Disponível para download em: https://www.pgadmin.org/download/pgadmin-4-windows/
 
+## Configuração do servidor Laragon
 
+#### laragon full 5.0.0 210523 
+#### php 8.0.22-nts-Win32-vs1-x64
+Disponível para download em: https://laragon.org/download/
+
+
+#### configuração do .env laravel
 ~~~php
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
