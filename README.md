@@ -30,13 +30,26 @@ Disponível para download em: https://laragon.org/download/
 ![image](https://github.com/ItaloRodrigo/sys_user/assets/28151367/b64ba41c-1c0e-4fa7-9850-ae3f6fb84b78)
 
 
+
+
+
 ## Backend (Laravel)
 #### configuração do .env 
 ~~~php
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
-DB_DATABASE=dbsys_user
-DB_USERNAME=sys_user
-DB_PASSWORD=
+DB_DATABASE=db_sys_user
+DB_USERNAME=postgres
+DB_PASSWORD=123
+~~~
+
+#### criando tabelas com migrations
+~~~php
+php artisan migrate
+~~~
+
+#### subir o serviço na porta padrão **8000**
+~~~php
+php artisan serve
 ~~~
