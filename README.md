@@ -1,10 +1,20 @@
 # sys_user
-### Sistema para controle de usuários
 
 ## Dados do candidato
 **Nome: Ítalo Rodrigo Soares Silva **
 - Mestre em Engenharia com ênfase em Otimização de Processos Industriais
 - Cientista da Computação
+
+## Requisitos do projeto
+- O sistema contempla um backend rodando em PHP (framework **Laravel**) na versão 11.x, conexão com o banco de dados PostgreSQL
+- O sistema contempla um frontend rodando em Javascript (framework **Vue.js**) na versão xx, utilizando o framework de componetização **Vuetify3**
+- O sistema contempla um CRUD de usuários
+
+## Estrutura do projeto
+- backend (serviço no laravel)
+- frontend (serviço no Vue.js)
+- docs (documentação + diagramas do projeto)
+
 
 ## Clone o repositório
 ~~~git
