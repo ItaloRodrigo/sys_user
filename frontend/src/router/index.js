@@ -11,9 +11,14 @@ import { setupLayouts } from 'virtual:generated-layouts'
 
 const routes = [
   {
-    path: "/hello",
-    name: "hello",
-    component: () => import("@/pages/teste.vue"),
+    path: "/",
+    name: "dashboard",
+    component: () => import("@/pages/Dashboard.vue"),
+  },
+  {
+    path: "/users",
+    name: "users",
+    component: () => import("@/pages/Usuarios.vue"),
   },
 ]
 

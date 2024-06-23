@@ -1,36 +1,12 @@
-<!-- <template>
-  <v-app>
-    <v-main>
-      <router-view />
-    </v-main>
-  </v-app>
-</template>
-
-<script setup>
-  //
-</script> -->
-
-
 <template>
-  <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer">
-      <!--  -->
-    </v-navigation-drawer>
-
-    <v-app-bar>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Sys User v1.0</v-app-bar-title>
-    </v-app-bar>
-
-    <v-main>
-      <!--  -->
-      <router-view />
-    </v-main>
-  </v-app>
+  <router-view />
 </template>
 
-<script setup>
+<script>
+
+</script>
+
+<!-- <script setup>
   import { ref } from 'vue'
 
   const drawer = ref(null)
@@ -40,4 +16,4 @@
   export default {
     data: () => ({ drawer: null }),
   }
-</script>
+</script> -->
