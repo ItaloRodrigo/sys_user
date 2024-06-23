@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json([
+        "mensagem" => 'Seja bem vindo ao sys_user',
+    ], 200);
 });
