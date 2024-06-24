@@ -20,6 +20,11 @@ const routes = [
     name: "users",
     component: () => import("@/pages/Usuarios.vue"),
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "notfound",
+    component: () => import("@/pages/NotFound.vue"),
+  },
 ]
 
 

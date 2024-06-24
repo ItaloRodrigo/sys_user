@@ -28,14 +28,14 @@
           <v-list-subheader>
             Menu
           </v-list-subheader>
-          <v-list-item v-for="item in items" :key="item.value" :title="item.title" :prepend-icon="item.icon" :value="item.value" link>
+          <v-list-item v-for="item in items" :key="item.value" :title="item.title" :prepend-icon="item.icon" :value="item.value" :to="item.to" link>
           </v-list-item>
         </v-list>
 
       </v-navigation-drawer>
 
-      <v-main >
-        <slot></slot>
+      <v-main>
+        <slot ></slot>
       </v-main>
     </v-layout>
   </v-card>

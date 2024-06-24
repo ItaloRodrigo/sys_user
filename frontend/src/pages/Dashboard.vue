@@ -1,5 +1,5 @@
 <template>
-  <base-layout>
+  <base-layout titlecard="Dashboard">
     <h1>Dashboard</h1>
   </base-layout>
 </template>
