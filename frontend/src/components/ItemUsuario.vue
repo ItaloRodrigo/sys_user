@@ -1,0 +1,60 @@
+<template>
+
+  <v-div>
+    <v-list-item :value="usuario.id">
+      <template v-slot:prepend="{ isActive }">
+
+        <v-list-item-action start>
+          <v-checkbox-btn :model-value="isActive"></v-checkbox-btn>
+        </v-list-item-action>
+      </template>
+
+      <v-row no-gutters>
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            <v-list-item-title>{{usuario.nome}}</v-list-item-title>
+
+          </v-sheet>
+        </v-col>
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            <v-list-item-title>{{usuario.email}}</v-list-item-title>
+          </v-sheet>
+        </v-col>
+      </v-row>
+
+
+
+      <template v-slot:append>
+        <!-- <v-btn
+          color="grey-lighten-1"
+          icon="mdi mdi-dots-vertical"
+          variant="text"
+        ></v-btn> -->
+        <DropdowmMenu :usuario="this.usuario"/>
+      </template>
+
+    </v-list-item>
+  </v-div>
+
+</template>
+
+<script>
+
+import DropdowmMenu from './DropdowmMenu.vue';
+
+export default{
+  name: 'ItemUsuario',
+
+  props: {
+    usuario: null
+  },
+
+  data() {
+      return {
+
+      };
+  },
+}
+
+</script>

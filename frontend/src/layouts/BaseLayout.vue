@@ -35,6 +35,14 @@
       </v-navigation-drawer>
 
       <v-main>
+        <v-container class="my-0 py-0">
+          <v-breadcrumbs :items="items">
+            <template v-slot:prepend>
+              <v-icon icon="mdi-home" size="small"></v-icon>
+            </template>
+          </v-breadcrumbs>
+        </v-container>
+
         <slot ></slot>
       </v-main>
     </v-layout>
