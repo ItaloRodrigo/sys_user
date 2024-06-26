@@ -13,11 +13,16 @@ import BaseLayout from "@/layouts/BaseLayout.vue";
 
 // Composables
 import { createApp } from 'vue'
+import { VueMaskDirective } from 'v-mask'
 
 const app = createApp(App)
+
+
 
 registerPlugins(app)
 
 app.component("base-layout",BaseLayout)
+
+app.directive('mask', VueMaskDirective)
 
 app.mount('#app')

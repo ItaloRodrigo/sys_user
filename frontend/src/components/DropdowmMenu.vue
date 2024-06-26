@@ -16,14 +16,14 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <ModalEditar v-if="items[0].modal" @closeModal="items[0].modal = false" :usuario="this.usuario" />
+    <ModalEditarUsuario v-if="items[0].modal" @closeModal="items[0].modal = false" :usuario="this.usuario" />
   </v-div>
 
 </template>
 
 <script>
 
-import ModalEditar from './ModalEditar.vue';
+import ModalEditarUsuario from './ModalEditarUsuario.vue';
 
 export default {
   name: 'DropdowmMenu',

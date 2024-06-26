@@ -91,10 +91,10 @@ export default {
     return {
       pesquisar: null,
       usuarios:[
-        {id:1, nome:"teste1", email:"teste@gmail.com", status:true},
-        {id:2, nome:"teste2", email:"teste@gmail.com", status:true},
-        {id:3, nome:"teste3", email:"teste@gmail.com", status:false},
-        {id:4, nome:"teste4", email:"teste@gmail.com", status:true},
+        {id:1, nome:"teste1", email:"teste@gmail.com", cpf:"xxx.xxx.xxx-xx", status:true},
+        {id:2, nome:"teste2", email:"teste@gmail.com", cpf:"xxx.xxx.xxx-xx", status:true},
+        {id:3, nome:"teste3", email:"teste@gmail.com", cpf:"xxx.xxx.xxx-xx", status:false},
+        {id:4, nome:"teste4", email:"teste@gmail.com", cpf:"xxx.xxx.xxx-xx", status:true},
       ],
     }
   },

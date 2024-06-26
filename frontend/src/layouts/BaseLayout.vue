@@ -4,6 +4,14 @@
       <v-app-bar color="primary" prominent>
         <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
+        <v-btn class="border mx-1" to="/">
+          <v-icon >mdi-home</v-icon>
+        </v-btn>
+
+        <v-btn class="border" @click="selfback()">
+          <v-icon >mdi mdi-arrow-left-circle</v-icon>
+        </v-btn>
+
         <v-toolbar-title >{{titlecard}} </v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -79,5 +87,11 @@
         this.drawer = false
       },
     },
+
+    methods:{
+      selfback(){
+        this.$router.go(-1);
+      }
+    }
   }
 </script>
