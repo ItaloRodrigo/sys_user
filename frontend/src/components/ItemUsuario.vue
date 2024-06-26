@@ -12,7 +12,7 @@
       <v-row no-gutters>
         <v-col>
           <v-sheet class="pa-2 ma-2">
-            <v-list-item-title>{{usuario.nome}}</v-list-item-title>
+            <v-list-item-title>{{usuario.name}}</v-list-item-title>
 
           </v-sheet>
         </v-col>
@@ -21,16 +21,16 @@
             <v-list-item-title>{{usuario.email}}</v-list-item-title>
           </v-sheet>
         </v-col>
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            <v-list-item-title>{{usuario.cpf}}</v-list-item-title>
+          </v-sheet>
+        </v-col>
       </v-row>
 
 
 
       <template v-slot:append>
-        <!-- <v-btn
-          color="grey-lighten-1"
-          icon="mdi mdi-dots-vertical"
-          variant="text"
-        ></v-btn> -->
         <DropdowmMenu :usuario="this.usuario"/>
       </template>
 

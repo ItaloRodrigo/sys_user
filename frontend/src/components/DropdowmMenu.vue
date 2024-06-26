@@ -45,12 +45,6 @@ export default {
       ],
     };
   },
-
-  methods:{
-    teste(){
-
-    }
-  }
 }
 
 </script>

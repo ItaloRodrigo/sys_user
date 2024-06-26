@@ -7,7 +7,7 @@
           <v-row>
             <v-col cols="12">
               <v-text-field
-                v-model="this.usuario.nome"
+                v-model="this.name"
                 :rules="nameRules"
                 label="Nome completo"
                 required>
@@ -16,7 +16,7 @@
 
             <v-col cols="12">
               <v-text-field
-                v-model="this.usuario.email"
+                v-model="this.email"
                 :rules="emailRules"
                 label="E-mail"
                 required>
@@ -25,8 +25,8 @@
 
             <v-col cols="12">
               <v-text-field
-                v-model="this.usuario.cpf"
-                :counter="11"
+                v-model="this.cpf"
+                :counter="14"
                 :rules="cpfRules"
                 label="CPF"
                 v-mask="'###.###.###-##'"
@@ -56,7 +56,7 @@
 
 <script>
 
-
+import axios from 'axios';
 
 export default {
   name: 'ModalEditarUsuario',
@@ -70,6 +70,9 @@ export default {
   data() {
     return {
       dialog: true,
+      name:'',
+      email:'',
+      cpf:'',
       // ------------------ validações
       nameRules: [
         value => {
@@ -93,9 +96,15 @@ export default {
     };
   },
 
+  created(){
+    this.name = this.usuario.name;
+    this.email = this.usuario.email;
+    this.cpf = this.usuario.cpf;
+  },
+
   methods:{
     salvar(){
-
+      // this.axios.get('')
 
       //---
       this.$emit('closeModal');

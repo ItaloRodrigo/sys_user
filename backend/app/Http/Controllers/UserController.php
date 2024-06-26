@@ -11,6 +11,19 @@ use LaravelLegends\PtBrValidator\Rules\FormatoCpf;
 
 class UserController extends Controller
 {
+
+    public function all(){
+        try {
+            return response()->json([
+                "user" => User::all()
+            ], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                "erros" => $e->errors(),
+            ], 200);
+        }
+    }
+
     public function show($id){
         try {
             return response()->json([
