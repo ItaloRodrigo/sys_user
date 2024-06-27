@@ -31,7 +31,7 @@
 
 
       <template v-slot:append>
-        <DropdowmMenu :usuario="this.usuario"/>
+        <DropdowmMenu :usuario="this.usuario" @updateLista="updateLista()"/>
       </template>
 
     </v-list-item>
@@ -44,6 +44,11 @@
 import DropdowmMenu from './DropdowmMenu.vue';
 
 export default{
+
+  emits:['updateLista'],
+
+  components:{DropdowmMenu},
+
   name: 'ItemUsuario',
 
   props: {
@@ -55,6 +60,12 @@ export default{
 
       };
   },
+
+  methods:{
+    updateLista(){
+      this.$emit('updateLista');
+    }
+  }
 }
 
 </script>

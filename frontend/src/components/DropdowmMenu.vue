@@ -16,7 +16,7 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <ModalEditarUsuario v-if="items[0].modal" @closeModal="items[0].modal = false" :usuario="this.usuario" />
+    <ModalEditarUsuario v-if="items[0].modal" @closeModal="closeModal()" :usuario="this.usuario" />
   </v-div>
 
 </template>
@@ -26,6 +26,11 @@
 import ModalEditarUsuario from './ModalEditarUsuario.vue';
 
 export default {
+
+  emits: ['updateLista'],
+
+  components:{ModalEditarUsuario},
+
   name: 'DropdowmMenu',
 
   props: {
@@ -45,6 +50,14 @@ export default {
       ],
     };
   },
+
+  methods:{
+    closeModal(){
+      this.items[0].modal = false;
+      //---
+      this.$emit('updateLista');
+    }
+  }
 }
 
 </script>

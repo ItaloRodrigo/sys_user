@@ -48,16 +48,6 @@
             ></v-text-field>
             </v-col>
 
-            <!-- <v-col cols="12">
-              <v-text-field
-                v-model="this.password_confirm"
-                :counter="14"
-                :rules="password_confirmRules"
-                label="Confirme a Senha"
-                required>
-              </v-text-field>
-            </v-col> -->
-
             <v-col cols="12">
               <v-text-field
                 v-model="this.password_confirm"
@@ -87,8 +77,6 @@
         </template>
       </v-card>
     </v-dialog>
-         <!-- Elemento de notificação -->
-         <!-- <NotificationDefault ref="notificationAddRef" /> -->
   </v-div>
 
 </template>
@@ -114,7 +102,7 @@ export default {
       password_confirm:'',
       show1: false,
       show2: false,
-      erros:null,
+      // erros:[],
       // ------------------ validações
       nameRules: [
         value => {
@@ -158,31 +146,42 @@ export default {
   },
 
   methods:{
-    salvar(){
-      this.erros=null;
-      axios.post("user/create",{
+    async salvar(){
+      var erros = [];
+      var mensagem = [];
+      //---
+      await axios.post("user/create",{
         name: this.name,
         email: this.email,
         cpf: this.cpf,
         password: this.password,
         password_confirm: this.password_confirm
       })
-        .then((response) => {
-          console.log(response.data.erros);
-          this.erros = response.data.erros;
-
+      .then((response) => {
+          if (response.data.hasOwnProperty('erros')){
+            for (const key in response.data.erros) {
+              if (response.data.erros.hasOwnProperty(key)) {
+                erros.push({
+                  type: 'error',
+                  title: 'Erro: criar usuário ',
+                  message: `${response.data.erros[key]}`
+                });
+              }
+            }
+          }else{
+            mensagem.push({
+              type: 'success',
+              title: 'Sucesso: criar usuário ',
+              message: response.data.mensagem
+            });
+          }
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
-
-      const notification = {
-            type: 'error',
-            title: 'Erro: criar usuário ',
-            message: this.erros
-          };
       //---
-      useNotificationsStore().showNotification(notification);
-      this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
-      useNotificationsStore().clearNotification();
-
+      useNotificationsStore().clearMessage();
+      useNotificationsStore().addMessagesAll(erros);
       //---
       this.$emit('closeModal');
     }

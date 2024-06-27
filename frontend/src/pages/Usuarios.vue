@@ -6,14 +6,14 @@
       <v-card flat class="border mt-3">
         <v-card-item >
           <template v-slot:append>
-            <v-btn class="primary" @click="chamaModalCriarUsuario()">Adicionar Usuário</v-btn>
-            <ModalCriarUsuario v-if="this.modalCriarUsuario" @closeModal="this.modalCriarUsuario = false" />
+            <v-btn color="primary" @click="chamaModalCriarUsuario()">Adicionar Usuário</v-btn>
+            <ModalCriarUsuario v-if="this.modalCriarUsuario" @closeModal="onCloseModal()" />
           </template>
           <!-- <v-text-field prepend-icon="mdi-searchmdi mdi-magnify" v-model="pesquisar" @keyup.enter="onEnterPesquisar" clearable label="Pesquisar" outlined></v-text-field> -->
         </v-card-item>
 
         <v-card-item class="">
-          <v-list lines="one" select-strategy="classic" >
+          <v-list lines="one" select-strategy="single-leaf" >
             <v-row no-gutters class="border-b">
               <v-col>
                 <v-sheet class="pa-2 ma-2">
@@ -34,7 +34,7 @@
             </v-row>
             <v-div v-for="usuario,index in usuarios" :key="index">
 
-              <ItemUsuario :usuario="usuario" @click="onSelected(this)"/>
+              <ItemUsuario :usuario="usuario" @dblclick="onSelected(usuario)" @updateLista="updateLista()"/>
             </v-div>
 
 
@@ -45,8 +45,11 @@
 
       </v-card>
 
-      <!-- Elemento de notificação -->
+    <!-- Elemento de notificação -->
     <NotificationDefault ref="notificationRef" />
+
+    <!-- Modal Editar Usuário -->
+    <ModalEditarUsuario v-if="modalEditarUsuario" @closeModal="closeModalEditarUsuario()" :usuario="this.usuarioSelected" />
 
     </v-container>
 
@@ -71,6 +74,8 @@ export default {
     return {
       pesquisar: null,
       modalCriarUsuario:false,
+      modalEditarUsuario:false,
+      usuarioSelected:null,
       usuarios:[
         {id:1, name:"teste1", email:"teste@gmail.com", cpf:"xxx.xxx.xxx-xx", status:true},
       ],
@@ -78,58 +83,53 @@ export default {
   },
 
   created(){
-    axios.get("user/all")
-      .then((response) => {
-        this.usuarios = [];
-        response.data.user.forEach(data => {
-          this.usuarios.push(data);
-        });
-        // console.log(response.data)
-      })
-  },
-
-  updated(){
-    console.log("apareceu")
-    axios.get("user/all")
-      .then((response) => {
-        this.usuarios = [];
-        response.data.user.forEach(data => {
-          this.usuarios.push(data);
-        });
-        // console.log(response.data)
-      })
+    this.updateLista();
   },
 
   methods:{
-    editUser(id){
-      const notification = {
-          type: 'error',
-          title: 'titulo '+id,
-          message: 'testando 1,2,3'
-      };
+
+    async updateLista(){
+      await axios.get("user/all")
+        .then((response) => {
+          this.usuarios = [];
+          response.data.user.forEach(data => {
+            this.usuarios.push(data);
+          });
+          // console.log(response.data)
+        });
+    },
+
+    showMessage(){
+      useNotificationsStore().messages.forEach(message => {
+        this.$refs.notificationRef.addNotification(message);
+      });
       //---
-      useNotificationsStore().showNotification(notification);
-      this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
-      useNotificationsStore().clearNotification();
+      useNotificationsStore().clearMessage();
     },
 
     chamaModalCriarUsuario(){
       this.modalCriarUsuario = true;
     },
 
-    onEnterPesquisar(){
-      console.log(this.pesquisar);
+    closeModalEditarUsuario(){
+      this.modalEditarUsuario = false;
+      this.updateLista();
+      this.showMessage();
     },
 
     onSelected(usuario){
       console.log(usuario);
-      // this.selectedUsuarios.push(usuario);
-      // console.log(this.selectedUsuarios.includes(usuario));
-      // console.log("all")
-      // console.log(this.selectedUsuarios);
+      this.usuarioSelected = usuario;
+      this.modalEditarUsuario = true;
+    },
+
+    onCloseModal(){
+      this.modalCriarUsuario = false;
+      //---
+      this.updateLista();
+      //---
+      this.showMessage();
     }
-
-
   }
 }
 </script>

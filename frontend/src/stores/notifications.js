@@ -2,16 +2,21 @@ import { defineStore } from 'pinia'
 
 export const useNotificationsStore = defineStore('notifications', {
   state: () => ({
-    notification: null,
+    messages: [],
   }),
 
   actions: {
-    showNotification(notification) {
-      this.notification = notification;
+
+    addMessagesAll(messages){
+      this.messages = messages;
     },
 
-    clearNotification() {
-      this.notification = null;
+    addMessage(message){
+      this.messages.push(message);
+    },
+
+    clearMessage(){
+      this.messages = [];
     },
   },
 });

@@ -57,6 +57,7 @@
 <script>
 
 import axios from 'axios';
+import { useNotificationsStore } from '@/stores/notifications';
 
 export default {
   name: 'ModalEditarUsuario',
@@ -73,6 +74,7 @@ export default {
       name:'',
       email:'',
       cpf:'',
+      id:0,
       // ------------------ validações
       nameRules: [
         value => {
@@ -100,11 +102,49 @@ export default {
     this.name = this.usuario.name;
     this.email = this.usuario.email;
     this.cpf = this.usuario.cpf;
+    this.id = this.usuario.id;
   },
 
   methods:{
-    salvar(){
-      // this.axios.get('')
+    async salvar(){
+      var erros = [];
+      var mensagem = [];
+      //---
+      await axios.post("user/update",{
+        name: this.name,
+        email: this.email,
+        cpf: this.cpf,
+        id: this.id,
+      })
+      .then((response) => {
+          if (response.data.hasOwnProperty('erros')){
+            for (const key in response.data.erros) {
+              if (response.data.erros.hasOwnProperty(key)) {
+                erros.push({
+                  type: 'error',
+                  title: 'Erro: editar usuário ',
+                  message: `${response.data.erros[key]}`
+                });
+              }
+            }
+            //---
+            useNotificationsStore().clearMessage();
+            useNotificationsStore().addMessagesAll(erros);
+          }else{
+            mensagem.push({
+              type: 'success',
+              title: 'Sucesso: editar usuário ',
+              message: response.data.mensagem
+            });
+            //---
+            useNotificationsStore().clearMessage();
+            useNotificationsStore().addMessagesAll(mensagem);
+          }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+      //---
 
       //---
       this.$emit('closeModal');

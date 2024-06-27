@@ -15,7 +15,7 @@ class UserController extends Controller
     public function all(){
         try {
             return response()->json([
-                "user" => User::all()
+                "user" => User::orderBy('name')->get()
             ], 200);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
@@ -72,7 +72,6 @@ class UserController extends Controller
                 'name'             => [new RuleRequired],
                 'email'            => [new RuleRequired,new RuleEmailValido],
                 'cpf'              => [new RuleRequired, new FormatoCpf],
-                'password'         => [new RuleRequired],
             ]);
             //---
             $existe = User::where("id",$request->id)->get();
@@ -82,11 +81,10 @@ class UserController extends Controller
                     'name'     => $request->name,
                     'email'    => $request->email,
                     'cpf'      => $request->cpf,
-                    'password' => bcrypt($request->password)
                 ]);
                 //---
                 return response()->json([
-                    "mensagem" => "Usuário deletado com sucesso!",
+                    "mensagem" => "Usuário atualizado com sucesso!",
                     "user"     => $user
                 ], 200);
             }else{
