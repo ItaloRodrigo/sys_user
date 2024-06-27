@@ -37,6 +37,7 @@ No geral foi um excelente desafio, simples e completo ao mesmo tempo, meus agrad
 - backend:
     - laravellegends/pt-br-validator (validações customizadas)
     - darkaonline/l5-swagger (documentação)
+    - pdo_pgsql
 - frontend:
     - vite
     - vue-axios
