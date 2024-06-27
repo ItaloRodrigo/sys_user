@@ -12,6 +12,23 @@ use LaravelLegends\PtBrValidator\Rules\FormatoCpf;
 class UserController extends Controller
 {
 
+    /**
+     * @OA\Info(
+     *     version="1.0",
+     *     title="Endpoints do Sys User v1.0",
+     *     description="Sys User v1.0",
+     * ),
+     * Sys User
+     * @OA\Get(
+     *     path="/api/user/all",
+     *     summary="Lista de Usuários",
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK"
+     *     )
+     * ),
+     */
+
     public function all(){
         try {
             return response()->json([
@@ -24,6 +41,24 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/user/show/{id}",
+     *     summary="Mostrar usuário",
+     *     @OA\Parameter(
+     *         description="id",
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(type="string"),
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK"
+     *     )
+     * )
+     */
+
     public function show($id){
         try {
             return response()->json([
@@ -35,6 +70,47 @@ class UserController extends Controller
             ], 200);
         }
     }
+
+    /**
+     * @OA\Post(
+     *     path="/api/user/create",
+     *     summary="Criar usuário",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="email",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="cpf",
+     *                     oneOf={
+     *                     	   @OA\Schema(type="string"),
+     *                     	   @OA\Schema(type="integer"),
+     *                     }
+     *                 ),
+     *                 @OA\Property(
+     *                     property="password",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="password_confirm",
+     *                     type="string"
+     *                 ),
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK"
+     *     )
+     * )
+     */
 
     public function create(Request $request)
     {
@@ -64,6 +140,43 @@ class UserController extends Controller
             ], 200);
         }
     }
+
+    /**
+     * @OA\Post(
+     *     path="/api/user/update",
+     *     summary="Atualizar usuário",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="name",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="email",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="cpf",
+     *                     oneOf={
+     *                     	   @OA\Schema(type="string"),
+     *                     	   @OA\Schema(type="integer"),
+     *                     }
+     *                 ),
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="int"
+     *                 ),
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK"
+     *     )
+     * )
+     */
 
     public function update(Request $request)
     {
@@ -98,6 +211,28 @@ class UserController extends Controller
             ], 200);
         }
     }
+
+        /**
+     * @OA\Post(
+     *     path="/api/user/delete",
+     *     summary="Deletar usuário",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 @OA\Property(
+     *                     property="id",
+     *                     type="int"
+     *                 ),
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK"
+     *     )
+     * )
+     */
 
     public function delete(Request $request){
         try {

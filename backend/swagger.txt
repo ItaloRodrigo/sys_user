@@ -1,0 +1,26 @@
+//run the following commands in commandline
+composer require darkaonline/l5-swagger
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+
+
+//paste in the .env file
+L5_SWAGGER_CONST_HOST=http://project.test/api/v1
+
+//paste this in the controller
+
+/**
+ * @OA\Info(
+ *    title="APIs For Thrift Store",
+ *    version="1.0.0",
+ * ),
+ *   @OA\SecurityScheme(
+ *       securityScheme="bearerAuth",
+ *       in="header",
+ *       name="bearerAuth",
+ *       type="http",
+ *       scheme="bearer",
+ *       bearerFormat="JWT",
+ *    ),
+ */
+//it will not work until you create a route
+php artisan l5-swagger:generate
