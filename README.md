@@ -85,6 +85,8 @@ php artisan migrate
 php artisan serve
 ~~~
 
+## Frontend (Vue.js)
+
 ## Instalar o Node.js e o npm
 
 Certifique-se de ter o Node.js e o npm (Node Package Manager) instalados em sua máquina. Caso não tenha, será necessário baixar e instalar.
