@@ -27,12 +27,13 @@
               <v-text-field
                 v-model="this.cpf"
                 :counter="14"
-                :rules="cpfRules"
                 label="CPF"
-                v-mask="'###.###.###-##'"
+                id="cpf"
                 required>
               </v-text-field>
             </v-col>
+
+
 
             <v-col cols="12">
               <v-text-field
@@ -80,6 +81,8 @@
   </v-div>
 
 </template>
+
+
 
 <script>
 

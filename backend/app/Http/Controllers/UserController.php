@@ -118,7 +118,7 @@ class UserController extends Controller
             $request->validate([
                 'name'             => [new RuleRequired],
                 'email'            => [new RuleRequired,new RuleEmailValido],
-                'cpf'              => [new RuleRequired, new FormatoCpf],
+                'cpf'              => [new RuleRequired],
                 'password'         => [new RuleConfirmedPassword($request->password_confirm),new RuleRequired],
                 'password_confirm' => [new RuleRequired],
             ]);
@@ -184,7 +184,7 @@ class UserController extends Controller
             $request->validate([
                 'name'             => [new RuleRequired],
                 'email'            => [new RuleRequired,new RuleEmailValido],
-                'cpf'              => [new RuleRequired, new FormatoCpf],
+                'cpf'              => [new RuleRequired],
             ]);
             //---
             $existe = User::where("id",$request->id)->get();

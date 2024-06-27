@@ -4,11 +4,11 @@
       <v-app-bar color="black" prominent>
         <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-btn class="border bg-primary" @click="selfback()">
+        <v-btn size="small" class="border bg-primary" @click="selfback()">
           <v-icon >mdi mdi-arrow-left-circle</v-icon>
         </v-btn>
 
-        <v-btn class="border mx-1 bg-primary" to="/">
+        <v-btn size="small" class="border mx-1 bg-primary" to="/">
           <v-icon >mdi-home</v-icon>
         </v-btn>
 
@@ -17,14 +17,7 @@
         <v-spacer></v-spacer>
 
         <template v-if="$vuetify.display.mdAndUp">
-          <!-- <v-btn icon="mdi-magnify" variant="text"></v-btn> -->
-
-          <!-- <v-btn icon="mdi-filter" variant="text"></v-btn> -->
         </template>
-
-        <!-- <v-btn icon="mdi-dots-vertical" variant="text" >
-
-        </v-btn> -->
       </v-app-bar>
 
       <v-navigation-drawer
@@ -38,8 +31,6 @@
           </v-list-subheader>
           <v-list-item v-for="item in items" :key="item.value" :title="item.title" :prepend-icon="item.icon" :value="item.value" :target="item.target" :href="item.to" link>
           </v-list-item>
-          <!-- <v-list-item key="end" title="Swagger" prepend-icon="mdi-api" value="end" :href="this.API_URL+'/documentation'" link> -->
-          <!-- </v-list-item> -->
         </v-list>
 
       </v-navigation-drawer>
@@ -88,7 +79,7 @@
           title: 'API - Swagger',
           value: '03',
           icon: 'mdi-api',
-          to:import.meta.env.VITE_API_URL+"/documentation",
+          to:import.meta.env.VITE_API_URL+"/documentation#/default",
           target:"_blank"
         },
       ],

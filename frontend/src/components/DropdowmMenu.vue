@@ -3,7 +3,7 @@
   <v-div>
     <v-menu>
       <template v-slot:activator="{ props }">
-        <v-btn color="primary" v-bind="props" icon>
+        <v-btn color="dark" v-bind="props" icon>
           <v-icon>mdi mdi-dots-vertical</v-icon>
         </v-btn>
       </template>
