@@ -1,15 +1,15 @@
 <template>
   <v-card>
     <v-layout>
-      <v-app-bar color="primary" prominent>
+      <v-app-bar color="black" prominent>
         <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-btn class="border mx-1" to="/">
-          <v-icon >mdi-home</v-icon>
+        <v-btn class="border bg-primary" @click="selfback()">
+          <v-icon >mdi mdi-arrow-left-circle</v-icon>
         </v-btn>
 
-        <v-btn class="border" @click="selfback()">
-          <v-icon >mdi mdi-arrow-left-circle</v-icon>
+        <v-btn class="border mx-1 bg-primary" to="/">
+          <v-icon >mdi-home</v-icon>
         </v-btn>
 
         <v-toolbar-title >{{titlecard}} </v-toolbar-title>
@@ -17,14 +17,14 @@
         <v-spacer></v-spacer>
 
         <template v-if="$vuetify.display.mdAndUp">
-          <v-btn icon="mdi-magnify" variant="text"></v-btn>
+          <!-- <v-btn icon="mdi-magnify" variant="text"></v-btn> -->
 
           <!-- <v-btn icon="mdi-filter" variant="text"></v-btn> -->
         </template>
 
-        <v-btn icon="mdi-dots-vertical" variant="text" >
+        <!-- <v-btn icon="mdi-dots-vertical" variant="text" >
 
-        </v-btn>
+        </v-btn> -->
       </v-app-bar>
 
       <v-navigation-drawer
@@ -42,7 +42,7 @@
 
       </v-navigation-drawer>
 
-      <v-main>
+      <v-main class="border-0">
         <v-container class="my-0 py-0">
           <v-breadcrumbs :items="items">
             <template v-slot:prepend>

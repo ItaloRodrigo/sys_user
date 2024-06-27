@@ -97,6 +97,10 @@ export default {
           });
           // console.log(response.data)
         });
+      //---
+      if(useNotificationsStore().messages.length > 0){
+        this.showMessage();
+      }
     },
 
     showMessage(){

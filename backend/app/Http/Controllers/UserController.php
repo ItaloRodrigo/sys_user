@@ -109,7 +109,7 @@ class UserController extends Controller
                 //---
                 if($deleted){
                     return response()->json([
-                        "deleted"    => $deleted
+                        "mensagem"    => "Usuário deletado com sucesso"
                     ], 200);
                 }else{
                     return response()->json([

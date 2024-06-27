@@ -2,50 +2,26 @@
 
   <v-div>
     <v-dialog v-model="dialog" max-width="600" persistent>
-      <v-card prepend-icon="mdi-pencil" title="Alterar Usuário">
+      <v-card prepend-icon="mdi-delete" title="Deletar Usuário">
         <v-card-item>
           <v-row>
             <v-col cols="12">
-              <v-text-field
-                v-model="this.name"
-                :rules="nameRules"
-                label="Nome completo"
-                required>
-              </v-text-field>
+              <h2>
+                Deseja realmente deletar o usuário: {{this.usuario.name}}?
+              </h2>
             </v-col>
-
-            <v-col cols="12">
-              <v-text-field
-                v-model="this.email"
-                :rules="emailRules"
-                label="E-mail"
-                required>
-              </v-text-field>
-            </v-col>
-
-            <v-col cols="12">
-              <v-text-field
-                v-model="this.cpf"
-                :counter="14"
-                :rules="cpfRules"
-                label="CPF"
-                v-mask="'###.###.###-##'"
-                required>
-              </v-text-field>
-            </v-col>
-
           </v-row>
         </v-card-item>
         <template v-slot:actions>
           <v-spacer></v-spacer>
 
           <!-- <v-btn @click="dialog = false"> -->
-          <v-btn class="bg-red" @click="$emit('closeModal')">
+          <v-btn class="bg-info" @click="$emit('closeModal')">
             Cancelar
           </v-btn>
 
-          <v-btn class="bg-success" @click="salvar()">
-            Salvar
+          <v-btn class="bg-red" @click="deletar()">
+            Deletar
           </v-btn>
         </template>
       </v-card>
@@ -60,7 +36,7 @@ import axios from 'axios';
 import { useNotificationsStore } from '@/stores/notifications';
 
 export default {
-  name: 'ModalEditarUsuario',
+  name: 'ModalDeletarUsuario',
 
   emits: ['closeModal'],
 
@@ -71,49 +47,22 @@ export default {
   data() {
     return {
       dialog: true,
-      name:'',
-      email:'',
-      cpf:'',
       id:0,
-      // ------------------ validações
-      nameRules: [
-        value => {
-          if(value) return true;
-
-          return "O nome é obrigatório!";
-        }
-      ],
-      emailRules: [
-        value => {
-          if (value) return true
-
-          return 'E-mail é obrigatório'
-        },
-        value => {
-          if (/.+@.+\..+/.test(value)) return true
-
-          return 'E-mail é inválido!'
-        },
-      ]
+      name:'',
     };
   },
 
   created(){
-    this.name = this.usuario.name;
-    this.email = this.usuario.email;
-    this.cpf = this.usuario.cpf;
     this.id = this.usuario.id;
+    this.name = this.usuario.name;
   },
 
   methods:{
-    async salvar(){
+    async deletar(){
       var erros = [];
       var mensagem = [];
       //---
-      await axios.post("user/update",{
-        name: this.name,
-        email: this.email,
-        cpf: this.cpf,
+      await axios.post("user/delete",{
         id: this.id,
       })
       .then((response) => {
@@ -122,7 +71,7 @@ export default {
               if (response.data.erros.hasOwnProperty(key)) {
                 erros.push({
                   type: 'error',
-                  title: 'Erro: editar usuário ',
+                  title: 'Erro: Deletar usuário ',
                   message: `${response.data.erros[key]}`
                 });
               }
@@ -133,7 +82,7 @@ export default {
           }else{
             mensagem.push({
               type: 'success',
-              title: 'Sucesso: editar usuário ',
+              title: 'Sucesso: Deletar usuário ',
               message: response.data.mensagem
             });
             //---

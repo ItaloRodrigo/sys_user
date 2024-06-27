@@ -2,7 +2,7 @@
 
   <v-div>
     <v-dialog v-model="dialog" max-width="600" persistent>
-      <v-card prepend-icon="mdi mdi-account" title="Criar Usuário">
+      <v-card prepend-icon="mdi mdi-account" title="Criar Usuário" title-color="success">
         <v-card-item>
           <v-row>
             <v-col cols="12">
@@ -67,11 +67,11 @@
           <v-spacer></v-spacer>
 
           <!-- <v-btn @click="dialog = false"> -->
-          <v-btn @click="$emit('closeModal')">
+          <v-btn class="bg-red" @click="$emit('closeModal')">
             Cancelar
           </v-btn>
 
-          <v-btn @click="salvar()">
+          <v-btn class="bg-success" @click="salvar()">
             Salvar
           </v-btn>
         </template>
@@ -168,20 +168,25 @@ export default {
                 });
               }
             }
+            //---
+            useNotificationsStore().clearMessage();
+            useNotificationsStore().addMessagesAll(erros);
           }else{
             mensagem.push({
               type: 'success',
               title: 'Sucesso: criar usuário ',
               message: response.data.mensagem
             });
+            //---
+            useNotificationsStore().clearMessage();
+            useNotificationsStore().addMessagesAll(mensagem);
           }
       })
       .catch((error) => {
         console.log(error.message);
       });
       //---
-      useNotificationsStore().clearMessage();
-      useNotificationsStore().addMessagesAll(erros);
+
       //---
       this.$emit('closeModal');
     }
